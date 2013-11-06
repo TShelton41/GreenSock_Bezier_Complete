@@ -105,18 +105,19 @@ $('document').ready(function() {
 		});
 	})();
 	
-	
+	//this updates the slider position
 	function updateSlider() {
 	  $("#slider").slider("value", tl.progress() *100);
 	} 		
 	
-	
+	//here we listen for the slider being moved.
 	$("#slider, .ui-slider-handle").mousedown(function() {
 	  $('html, #slider, .ui-slider-handle').one("mouseup", function(e){
 	    tl.resume();
 	  });
 	});
-	
+
+    //this is the listener for the tick function that gets called every tick so we can redraw.
 	TweenLite.ticker.addEventListener("tick", redraw);
 	buildTimeline();
 
